@@ -1,14 +1,14 @@
 #!/bin/bash
 set -e
 
-apt update && apt install -y git curl openssl qrencode systemd
+apt update && apt install -y git curl openssl systemd
 
-REPO_DIR="$HOME/self-signed-cert-script-by-antenka"
+REPO_DIR="$HOME/self-signed-cert-script-by-somnus"
 
 if [ -d "$REPO_DIR" ]; then
     cd "$REPO_DIR" && git pull
 else
-    git clone https://github.com/anten-ka/self-signed-cert-script-by-antenka.git "$REPO_DIR"
+    git clone https://github.com/anten-ka/self-signed-cert-script-by-somnus.git "$REPO_DIR"
 fi
 
 cd "$REPO_DIR"
