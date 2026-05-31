@@ -42,8 +42,8 @@ echo ""
 fi
 
 # 3. Установка зависимостей
-echo "--- Подготовка системы (sqlite3, expect, qrencode) ---"
-apt-get update && apt-get install -y expect qrencode curl sqlite3
+echo "--- Подготовка системы (sqlite3, expect) ---"
+apt-get update && apt-get install -y expect curl sqlite3
 sleep 1
 
 echo "--- Запуск установки 3x-ui ---"
@@ -136,30 +136,5 @@ echo "════════════════════════�
 echo ""
 
 wait_for_enter
-
-# --- БЛОК QR-КОДОВ (ИНФОРМАЦИОННЫЕ) ---
-cat << "EOF"
-============================================================
-         ПОДПИШИСЬ НА НАС НА YOUTUBE: ANTEN-KA
-============================================================
-EOF
-
-echo -e "\n### QR-КОД YOUTUBE ###"
-qrencode -t ANSIUTF8 "https://www.youtube.com/antenkaru"
-wait_for_enter
-
-for i in {1..2}; do echo "============================================================"; done
-
-echo -e "\n### QR-КОД BOOSTY ###"
-qrencode -t ANSIUTF8 "https://boosty.to/anten-ka"
-wait_for_enter
-
-for i in {1..2}; do echo "============================================================"; done
-
-# --- ФИНАЛЬНЫЙ QR-КОД (ЧАЕВЫЕ В САМОМ КОНЦЕ) ---
-echo -e "\n### ФИНАЛЬНЫЙ QR-КОД: ПОДДЕРЖАТЬ ПРОЕКТ (ЧАЕВЫЕ) ###"
-echo "############################################################"
-qrencode -t ANSIUTF8 "https://pay.cloudtips.ru/p/7410814f"
-echo "############################################################"
 
 echo -e "\nСкрипт полностью завершил работу. Удачи!"
